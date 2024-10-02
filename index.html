@@ -35,24 +35,27 @@
         #input-container button:hover {
             background-color: #555;
         }
-        .tier-list {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
-        .tier {
+        th {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        td {
             background-color: white;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            width: calc(30% - 20px);
-            margin: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .tier h3 {
+            padding: 10px;
             text-align: center;
         }
+        .s-rank { background-color: #ffd700; } /* Gold */
+        .a-rank { background-color: #c0c0c0; } /* Silver */
+        .b-rank { background-color: #cd7f32; } /* Bronze */
+        .c-rank { background-color: #90ee90; } /* Light Green */
+        .d-rank { background-color: #ffcccb; } /* Light Red */
     </style>
 </head>
 <body>
@@ -64,28 +67,26 @@
     <button onclick="addItem()">Hinzufügen</button>
 </div>
 
-<div class="tier-list" id="tier-list">
-    <div class="tier" id="tier-s">
-        <h3>S-Rang</h3>
-        <ul id="s-rank"></ul>
-    </div>
-    <div class="tier" id="tier-a">
-        <h3>A-Rang</h3>
-        <ul id="a-rank"></ul>
-    </div>
-    <div class="tier" id="tier-b">
-        <h3>B-Rang</h3>
-        <ul id="b-rank"></ul>
-    </div>
-    <div class="tier" id="tier-c">
-        <h3>C-Rang</h3>
-        <ul id="c-rank"></ul>
-    </div>
-    <div class="tier" id="tier-d">
-        <h3>D-Rang</h3>
-        <ul id="d-rank"></ul>
-    </div>
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>S-Rang</th>
+            <th>A-Rang</th>
+            <th>B-Rang</th>
+            <th>C-Rang</th>
+            <th>D-Rang</th>
+        </tr>
+    </thead>
+    <tbody id="tier-list">
+        <tr>
+            <td class="s-rank"><ul id="s-rank"></ul></td>
+            <td class="a-rank"><ul id="a-rank"></ul></td>
+            <td class="b-rank"><ul id="b-rank"></ul></td>
+            <td class="c-rank"><ul id="c-rank"></ul></td>
+            <td class="d-rank"><ul id="d-rank"></ul></td>
+        </tr>
+    </tbody>
+</table>
 
 <script>
     function addItem() {
@@ -97,7 +98,6 @@
             return;
         }
 
-        // Hier kannst du eine Logik hinzufügen, um den Rang zu bestimmen
         const rank = prompt("Gib den Rang für dieses Element ein (S, A, B, C, D):").toUpperCase();
         const rankList = document.getElementById(rank.toLowerCase() + "-rank");
 
