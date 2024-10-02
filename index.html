@@ -3,116 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streetwear Kollektion</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tierliste erstellen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: pink;
             padding: 20px;
+        }
+        h1 {
             text-align: center;
         }
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        .grid {
+        #input-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        .item {
+        #input-container input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #input-container button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #input-container button:hover {
+            background-color: #555;
+        }
+        .tier-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .tier {
             background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 15px;
-            flex: 1 1 calc(33.333% - 20px);
+            width: calc(30% - 20px);
+            margin: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
-        .item img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        footer {
+        .tier h3 {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Streetwear Kollektion</h1>
-    <nav>
-        <a href="#home">Startseite</a>
-        <a href="#kollektion">Kollektion</a>
-        <a href="#about">Über uns</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
-</header>
+<h1>Tierliste erstellen</h1>
 
-<div class="container">
-    <section id="home">
-        <h2>Willkommen in der Welt der Streetwear</h2>
-        <p>Entdecke die neuesten Trends und Styles für deinen urbanen Look.</p>
-    </section>
-
-    <section id="kollektion">
-        <h2>Unsere Kollektion</h2>
-        <div class="grid">
-            <div class="item">
-                <img src="https://via.placeholder.com/300x200?text=T-Shirt" alt="Baggy T-Shirt">
-                <h3>T-Shirt</h3>
-                <p>Stylisches Baggy-T-Shirt mit einzigartigem Design.</p>
-            </div>
-            <div class="item">
-                <img src="https://via.placeholder.com/300x200?text=Hoodie" alt="Baggy Hoodie">
-                <h3>Hoodie</h3>
-                <p>Bequemer Baggy-Hoodie für kalte Tage.</p>
-            </div>
-            <div class="item">
-                <img src="https://via.placeholder.com/300x200?text=Cap" alt="Cap">
-                <h3>Cap</h3>
-                <p>Trendige Cap für den perfekten Look.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>Über uns</h2>
-        <p>Wir sind eine leidenschaftliche Gruppe von Streetwear-Enthusiasten, die die Kultur und den Stil der Straße feiern.</p>
-    </section>
-
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Hast du Fragen? Schreib uns an: <a href="mailto:info@streetwear.de">info@streetwear.de</a></p>
-    </section>
+<div id="input-container">
+    <input type="text" id="item-input" placeholder="Element hinzufügen...">
+    <button onclick="addItem()">Hinzufügen</button>
 </div>
 
-<footer>
-    <p>&copy; 2024 Streetwear Kollektion. Alle Rechte vorbehalten.</p>
-</footer>
+<div class="tier-list" id="tier-list">
+    <div class="tier" id="tier-s">
+        <h3>S-Rang</h3>
+        <ul id="s-rank"></ul>
+    </div>
+    <div class="tier" id="tier-a">
+        <h3>A-Rang</h3>
+        <ul id="a-rank"></ul>
+    </div>
+    <div class="tier" id="tier-b">
+        <h3>B-Rang</h3>
+        <ul id="b-rank"></ul>
+    </div>
+    <div class="tier" id="tier-c">
+        <h3>C-Rang</h3>
+        <ul id="c-rank"></ul>
+    </div>
+    <div class="tier" id="tier-d">
+        <h3>D-Rang</h3>
+        <ul id="d-rank"></ul>
+    </div>
+</div>
+
+<script>
+    function addItem() {
+        const itemInput = document.getElementById("item-input");
+        const itemValue = itemInput.value.trim();
+
+        if (itemValue === "") {
+            alert("Bitte ein Element eingeben.");
+            return;
+        }
+
+        // Hier kannst du eine Logik hinzufügen, um den Rang zu bestimmen
+        const rank = prompt("Gib den Rang für dieses Element ein (S, A, B, C, D):").toUpperCase();
+        const rankList = document.getElementById(rank.toLowerCase() + "-rank");
+
+        if (rankList) {
+            const listItem = document.createElement("li");
+            listItem.textContent = itemValue;
+            rankList.appendChild(listItem);
+            itemInput.value = ""; // Eingabefeld leeren
+        } else {
+            alert("Ungültiger Rang. Bitte verwende S, A, B, C oder D.");
+        }
+    }
+</script>
 
 </body>
 </html>
