@@ -1,20 +1,110 @@
-<html>
-<head></head>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetwear Kollektion</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            flex: 1 1 calc(33.333% - 20px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
 
-Die Wodka-Brennerei<p> Smirnoff wurde 1886 von Pjotr Arsenjewitsch<p> Smirnow in Moskau gegründet und war die erste Brennerei weltweit,<p> die Holzkohle zum Filtern benutzte.<p>
-n den USA noch wenig bekannt,<p> der Markt wurde von Whiskeys dominiert.<p> 1941 schuf Heublein-Manager Johgwerlimonade (ginger beer) und Smirnoff.<p> Zur Vermarktung wurden an die Bars Kupferbecher mit Smirnoff-Logo verteilt,<p> später wurde die Ingwerlimonade durch 7 Up ersetzt.<p> Nach dem Krieg wurde Smirnoff zunächst auf dem US-amerikanischen Markt mit großem Aufwand beworben, 
-In der Formel-1-Saison 2014 sponserte Smirnoff das Force-India-Team.
+<header>
+    <h1>Streetwear Kollektion</h1>
+    <nav>
+        <a href="#home">Startseite</a>
+        <a href="#kollektion">Kollektion</a>
+        <a href="#about">Über uns</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
 
+<div class="container">
+    <section id="home">
+        <h2>Willkommen in der Welt der Streetwear</h2>
+        <p>Entdecke die neuesten Trends und Styles für deinen urbanen Look.</p>
+    </section>
 
-<img
-src=https://images.tcdn.com.br/img/img_prod/584699/smirnoff_red_label_vodka_375_ml_384_1_20171115160903.png/>
+    <section id="kollektion">
+        <h2>Unsere Kollektion</h2>
+        <div class="grid">
+            <div class="item">
+                <h3>T-Shirt</h3>
+                <p>Stylisches T-Shirt mit einzigartigem Design.</p>
+            </div>
+            <div class="item">
+                <h3>Hoodie</h3>
+                <p>Bequemer Hoodie für kalte Tage.</p>
+            </div>
+            <div class="item">
+                <h3>Cap</h3>
+                <p>Trendige Cap für den perfekten Look.</p>
+            </div>
+        </div>
+    </section>
 
+    <section id="about">
+        <h2>Über uns</h2>
+        <p>Wir sind eine leidenschaftliche Gruppe von Streetwear-Enthusiasten, die die Kultur und den Stil der Straße feiern.</p>
+    </section>
 
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Hast du Fragen? Schreib uns an: <a href="mailto:info@streetwear.de">info@streetwear.de</a></p>
+    </section>
+</div>
 
-
-
-
+<footer>
+    <p>&copy; 2024 Streetwear Kollektion. Alle Rechte vorbehalten.</p>
+</footer>
 
 </body>
 </html>
